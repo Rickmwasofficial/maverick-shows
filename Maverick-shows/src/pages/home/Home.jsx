@@ -1,6 +1,14 @@
+import Hero from './Hero'
+import Popular from './Popular'
+import Upcoming from './Upcoming'
+
 function Home() {
     return (
-        <h1>This is the home</h1>
+        <>
+            <Hero />
+            <Popular />
+            <Upcoming />
+        </>
     )
 }
 

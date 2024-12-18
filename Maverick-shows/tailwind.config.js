@@ -9,7 +9,8 @@ export default {
       fontFamily: {
         'work-sans': ['Work Sans', 'sans-serif'],
         'caveat': ['Caveat', 'sans-serif'],
-        'rubik': ['Rubik Moonrocks', 'sans-serif']
+        'rubik': ['Rubik Moonrocks', 'sans-serif'],
+        'lato': ['Lato', 'sans-serif']
       },
       colors: {
         'red-theme': {

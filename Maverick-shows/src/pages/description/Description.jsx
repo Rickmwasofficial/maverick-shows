@@ -3,3 +3,5 @@ function Description() {
         <h1>This is a description</h1>
     )
 }
+
+export default Description;

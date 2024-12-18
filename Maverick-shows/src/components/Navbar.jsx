@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 function Navbar() {
     const [hamburgerIcon, setHamburgerIcon] = useState('true')
-    const [inputEl, setInputEl] = useState('true')
+    const [inputEl, setInputEl] = useState('')
 
     function toggleHumburger() {
         setHamburgerIcon(prevHamburger => !prevHamburger)

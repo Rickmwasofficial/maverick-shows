@@ -15,8 +15,8 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/movies' element={<Movie />} />
         <Route path='/tv' element={<Tv />} />
-        <Route path='/movies/:id' element={<Description />} />
-        <Route path='/tv/:id' element={<Description />} />
+        <Route path='/:str/:id' element={<Description />} />
+        <Route path='/:str/:id' element={<Description />} />
       </Routes>
       <Footer />
     </>

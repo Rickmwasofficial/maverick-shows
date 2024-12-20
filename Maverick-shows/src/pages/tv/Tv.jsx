@@ -3,10 +3,11 @@ import ShowCard from '../../components/ShowCard'
 
 function Tv() {
     const data = Data.results
-    let shows = data.map(show => (
+    let shows = data.map((show, index) => (
         <ShowCard 
             key={show.original_title}
             {...show}
+            num={index}
         />
     ))
     return (

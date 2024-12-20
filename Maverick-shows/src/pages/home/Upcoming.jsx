@@ -7,7 +7,7 @@ function Upcoming() {
         <ShowCard 
             key={show.original_title}
             {...show}
-            id={index + 10}
+            num={index + 10}
         />
     ))
     return (

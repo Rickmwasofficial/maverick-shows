@@ -55,7 +55,9 @@ function Description() {
             </div>
             <div className='bg-gradient-to-r hidden sm:block md:w-4/12 from-transparent to-black'></div>
         </section>
-        <div className="w-8/12 mx-auto">
+        <div className="w-11/12 md:w-9/12 mx-auto">
+            <h1 className="font-work-sans font-bold pt-3">TRAILER</h1>
+            <hr className="bg-red-theme my-2 py-[0.6px] w-10/12" />
             <iframe
                 className='w-full aspect-video p-2 mx-auto'
                 src={`https://www.youtube.com/embed/d6V61TtFdiw`}

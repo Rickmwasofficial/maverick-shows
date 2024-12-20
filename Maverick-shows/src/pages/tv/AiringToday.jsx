@@ -11,7 +11,7 @@ function AiringToday() {
             try {
                 const movieData = await getTvAiring(page)
                 console.log(movieData.results)
-                const data = movieData.results.slice(0, 10)
+                const data = movieData.results.slice(10, 20)
                 let retrievedShows = data.map((show, index) => (
                     <ShowCard 
                         key={show.original_title}

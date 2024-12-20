@@ -33,22 +33,22 @@ export async function getMovieUpcoming(page=1) {
   return await res.json();
 }
 
-export async function getTvUpcoming(page=1) {
+export async function getTvUpcoming(page=5) {
   const res = await fetch(`https://api.themoviedb.org/3/tv/upcoming?language=en-US&$page={page}`, options);
   return await res.json();
 }
 
-export async function getTvAiring(page=1) {
+export async function getTvAiring(page=5) {
   const res = await fetch(`https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${page}`, options);
   return await res.json();
 }
 
-export async function getTvonAir(page=1) {
+export async function getTvonAir(page=5) {
   const res = await fetch(`https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=${page}`, options);
   return await res.json();
 }
 
-export async function getTvPopular(page=1) {
+export async function getTvPopular(page=5) {
   const res = await fetch(`https://api.themoviedb.org/3/tv/popular?language=en-US&page=${page}`, options);
   return await res.json();
 }

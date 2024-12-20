@@ -11,7 +11,7 @@ function Popular() {
             try {
                 const movieData = await getTvPopular() // No need for .json() since data is already parsed
                 // console.log('movieData:', movieData)
-                const data = movieData.results.slice(0, 10)
+                const data = movieData.results.slice(10, 20)
                 let retrievedShows = data.map((show, index) => (
                     <ShowCard 
                         key={show.original_title}

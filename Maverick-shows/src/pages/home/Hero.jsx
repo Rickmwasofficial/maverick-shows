@@ -32,7 +32,7 @@ function Hero() {
                         <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>Fantasy</div>
                         <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>Action</div>
                     </div>
-                    <h1 className='font-rubik text-4xl max-lg:text-3xl py-2 pt-3'>{Data.results[num].original_title}</h1>
+                    <h1 className='font-rubik text-4xl max-lg:text-3xl py-4 pb-0'>{Data.results[num].original_title}</h1>
                     {/* <p className='py-1 text-md max-md:text-sm'>CHADWICK BOSEMAN, MICHAEL B JORDAN, LUPITA NYONGO</p> */}
                     <p className='py-1 text-xs'>2 HRS 14 MINS <span className="font-bold text-3xl">.</span> {Data.results[num].release_date} <span className="font-bold text-3xl">.</span> {Data.results[num].original_language.toUpperCase()}</p>
                     <p className='py-2 text-md max-lg:text-xs text-gray-300'>{Data.results[num].overview}</p>

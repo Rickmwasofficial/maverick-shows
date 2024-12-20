@@ -20,7 +20,7 @@ function Navbar() {
     }
 
     return (
-        <header className='flex w-full text-nowrap absolute font-bold text-white font-work-sans justify-center'>
+        <header className='flex w-full text-nowrap absolute font-bold m-0 text-white font-work-sans justify-center'>
             <nav className='flex md:w-11/12 w-full align-middle p-5 justify-between'>
                 <div className="flex text-nowrap w-8/12 gap-12 mr-24">
                     <p className='mr-10 font-rubik text-nowrap'>LUTHOR SHOWS</p>

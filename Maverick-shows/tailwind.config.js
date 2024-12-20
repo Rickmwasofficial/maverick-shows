@@ -10,7 +10,8 @@ export default {
         'work-sans': ['Work Sans', 'sans-serif'],
         'caveat': ['Caveat', 'sans-serif'],
         'rubik': ['Rubik Moonrocks', 'sans-serif'],
-        'lato': ['Lato', 'sans-serif']
+        'lato': ['Lato', 'sans-serif'],
+        'joti': ['Joti One', 'sans-serif']
       },
       colors: {
         'red-theme': {

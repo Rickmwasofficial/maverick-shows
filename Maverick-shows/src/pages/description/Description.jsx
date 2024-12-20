@@ -29,7 +29,7 @@ function Description() {
         };
     
         fetchDetails();
-    }, [num]);
+    }, [id]);
     console.log(details)
     useEffect(() => {
         const fetchTrailer = async () => {
@@ -56,7 +56,7 @@ function Description() {
         };
     
         fetchTrailer();
-    }, [num]);
+    }, [id]);
 
 
     let image = `https://image.tmdb.org/t/p/original${details.backdrop_path}`
@@ -83,11 +83,11 @@ function Description() {
             <div className='flex bg-gradient-to-r w-full md:w-8/12 from-black to-transparent items-center'>
                 <div className="inline-block text-white max-sm:text-center w-8/12 max-md:w-11/12 h-[auto] justify-center mx-auto my-auto pt-10">
                     <div className="flex tags text-white sm:w-8/12 w-full max-sm:justify-around sm:gap-8 text-sm">
-                        <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres['0'].name}</div>
-                        <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres['1'].name}</div>
-                        <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres['2'].name}</div>
+                        <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres ? details.genres['0'] ? details.genres['0'].name : '' : ''}</div>
+                        <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres ? details.genres['1'] ? details.genres['1'].name : '' : ''}</div>
+                        <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres ? details.genres['2'] ? details.genres['2'].name : '' : ''}</div>
                     </div>
-                    <h1 className='font-rubik text-4xl max-lg:text-3xl py-4 pb-0'>{details.original_title}</h1>
+                    <h1 className='font-rubik text-4xl max-lg:text-3xl py-4 pb-0'>{details.original_title ? details.original_title : details.original_name}</h1>
                     {/* <p className='py-1 text-md max-md:text-sm'>CHADWICK BOSEMAN, MICHAEL B JORDAN, LUPITA NYONGO</p> */}
                     <p className='py-1 text-xs'>2 HRS 14 MINS <span className="font-bold text-3xl">.</span> {details.release_date} <span className="font-bold text-3xl">.</span> {}</p>
                     <p className='py-2 text-md max-lg:text-xs text-gray-300'>{details.overview}</p>

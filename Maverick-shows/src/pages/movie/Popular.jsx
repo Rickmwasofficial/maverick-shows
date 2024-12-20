@@ -1,30 +1,32 @@
+import { getMoviePopular } from '../../data/api.js'
 import ShowCard from '../../components/ShowCard'
-import { getPopular } from '../../data/api.js'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Popular() {
     let page = 1
     const [shows, setShows] = useState('')
     useEffect(() => {
         const getPop = async () => {
+            console.log('started movie popular')
             try {
-                const movieData = await getPopular()
+                const movieData = await getMoviePopular() // No need for .json() since data is already parsed
+                console.log('movieData:', movieData)
                 const data = movieData.results.slice(0, 10)
                 let retrievedShows = data.map((show, index) => (
                     <ShowCard 
                         key={show.original_title}
                         {...show}
                         num={index}
+                        media_type='movie'
                     />
                 ))
                 setShows(retrievedShows)
             } catch (error) {
-                console.error('Error fetching movies:', error);
+                console.error('Error fetching tv:', error);
             }
         }
         getPop()
     }, [page])
-    
     return (
         <section className="block my-2 md:w-10/12 h-[auto] w-full align-middle justify-start p-2 md:mx-auto">
             <h1 className="font-work-sans">POPULAR</h1>
@@ -34,7 +36,7 @@ function Popular() {
                     {shows}
                 </div>
                 ) : (
-                <p className="text-center">Loading popular shows...</p>
+                <p className="text-center">Loading popular movies...</p>
                 )}
         </section>
     )

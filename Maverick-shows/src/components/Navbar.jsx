@@ -3,11 +3,32 @@ import Profile from '../assets/profile.svg?url'
 import Hamburger from '../assets/hamburger.svg?url'
 import CloseHamburger from '../assets/closehamburger.svg?url'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getSearchResults } from '../data/api'
+import SearchResults from './SearchResults'
 
 function Navbar() {
     const [hamburgerIcon, setHamburgerIcon] = useState('true')
     const [inputEl, setInputEl] = useState('')
+    const [query, setQuery] = useState('')
+    const [results, setResults] = useState('')
+
+    const handleSearch = async () => {
+        if (!query) return; // Avoid empty searches
+        try {
+            console.log(query)
+            const results = await getSearchResults(query);
+            if (Array.isArray(results)) { // Check if it's an array
+                setResults(results.results.map((show, index) => (
+                    <SearchResults key={show.original_title} {...show} num={index} />
+                )));
+            } else {
+                console.log('No search results found'); // Handle empty results (optional)
+            }
+        } catch (error) {
+            console.error('Error fetching search results:', error);
+        }
+    };
 
     function toggleHumburger() {
         setHamburgerIcon(prevHamburger => !prevHamburger)
@@ -16,7 +37,7 @@ function Navbar() {
 
     function toggleInput() {
         setInputEl(prevInput => !prevInput)
-        searchStyle = prevInput ? 'hidden md:flex md:block md:justify-around' : 'hidden md:flex md:block md:justify-end gap-4 align-middle'
+        searchStyle = !inputEl ? 'hidden md:flex md:block md:justify-around' : 'hidden md:flex md:block md:justify-end gap-4 align-middle'
     }
 
     return (
@@ -34,7 +55,19 @@ function Navbar() {
                     <button type="button" onClick={toggleInput}>
                         <img src={Search} alt="search icon" width={'20px'} />
                     </button>
-                    {inputEl ? <input type="text" name="searchInput" className='text-black font-light px-[4px] border-r-2 outline-red-theme' /> : undefined}
+                    {inputEl ? 
+                        <div className="block gap-2">
+                            <input type="text" name="searchInput" value={query}
+        onChange={(e) => setQuery(e.target.value)} onKeyDown={e => {
+            if (e.key === 'Enter') {
+                handleSearch()
+            }
+        }} className='text-black font-light px-[4px] border-r-2 outline-red-theme' />
+                            <div className='bg-white text-black p-1 mt-[14px] absolute z-11 max-h-56 w-56'>
+                                {results}
+                            </div>
+                        </div>
+                    : undefined}
 
                     <img src={Profile} alt="profile icon" width={'20px'} />
                 </div>

@@ -58,10 +58,10 @@ export async function getMoviePopular() {
   return await res.json();
 }
 
-export async function getSearchResults(query) {
-  fetch(`https://api.themoviedb.org/3/search/multi?query=${query}include_adult=false&language=en-US&page=1`, options)
-    .then(function(data) {
-      console.log(data.results);
-      return data.results
-  })
+export function getSearchResults(query) {
+  return fetch(
+      `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`, 
+      options
+  )
+  .then(response => response.json());
 }

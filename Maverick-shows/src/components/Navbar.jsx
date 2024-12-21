@@ -15,15 +15,16 @@ function Navbar() {
 
     const handleSearch = async () => {
         if (!query) return; // Avoid empty searches
+        setResults('')
         try {
-            console.log(query)
-            const results = await getSearchResults(query);
-            if (Array.isArray(results)) { // Check if it's an array
-                setResults(results.results.map((show, index) => (
-                    <SearchResults key={show.original_title} {...show} num={index} />
+            console.log(query);
+            const data = await getSearchResults(query);
+            if (data && data.results) { // Check if data and results exist
+                setResults(data.results.map((show, index) => (
+                    <SearchResults key={show.original_title || show.id} {...show} num={index} />
                 )));
             } else {
-                console.log('No search results found'); // Handle empty results (optional)
+                console.log('No search results found');
             }
         } catch (error) {
             console.error('Error fetching search results:', error);
@@ -37,6 +38,7 @@ function Navbar() {
 
     function toggleInput() {
         setInputEl(prevInput => !prevInput)
+        setResults('')
         searchStyle = !inputEl ? 'hidden md:flex md:block md:justify-around' : 'hidden md:flex md:block md:justify-end gap-4 align-middle'
     }
 
@@ -63,7 +65,7 @@ function Navbar() {
                 handleSearch()
             }
         }} className='text-black font-light px-[4px] border-r-2 outline-red-theme' />
-                            <div className='bg-white text-black p-1 mt-[14px] absolute z-11 max-h-56 w-56'>
+                            <div className='block gap-2 bg-yellow-50 text-black p-1 mt-[14px] overflow-scroll absolute z-11 max-h-96 w-auto mr-6'>
                                 {results}
                             </div>
                         </div>

@@ -4,9 +4,9 @@ function ShowCard(props) {
     console.log(props)
     let link
     if (props.media_type == 'movie') {
-        link = `http://localhost:5174/movies/${props.id}`
+        link = `http://localhost:5173/movies/${props.id}`
     } else if (props.media_type == 'tv') {
-        link = `http://localhost:5174/tv/${props.id}`
+        link = `http://localhost:5173/tv/${props.id}`
     }
     return (
         <Link to={link}>

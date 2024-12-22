@@ -4,9 +4,9 @@ function ShowCard(props) {
     console.log(props)
     let link
     if (props.media_type == 'movie') {
-        link = `http://localhost:5173/movies/${props.id}`
+        link = `https://maverick-shows.vercel.app/movies/${props.id}`
     } else if (props.media_type == 'tv') {
-        link = `http://localhost:5173/tv/${props.id}`
+        link = `https://maverick-shows.vercel.app/tv/${props.id}`
     }
     return (
         <Link to={link}>

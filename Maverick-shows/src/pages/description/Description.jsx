@@ -1,5 +1,5 @@
 import Data from '../../data/data.js'
-import { getMovieTrailer, getDetails, getTvTrailer } from '../../data/api.js'
+import { getMovieTrailer, getDetails, getTvTrailer, getTvCredits, getMovieCredits } from '../../data/api.js'
 import Play from '../../assets/play.png'
 import Trailer from '../../assets/trailer.png'
 import { useParams } from 'react-router-dom'
@@ -17,6 +17,7 @@ function Description() {
                 if (str == 'movies') {
                     console.log('started movie')
                     const key = await getDetails('movie', id)
+                    
                     setDetails(key)
                 } else {
                     const key = await getDetails('tv', id);
@@ -112,7 +113,7 @@ function Description() {
                         <div className='outline outline-1 px-2 rounded-lg bg-transparent outline-red-theme'>{details.genres ? details.genres['2'] ? details.genres['2'].name : '' : ''}</div>
                     </div>
                     <h1 className='font-rubik text-4xl max-lg:text-3xl py-4 pb-0'>{details.original_title ? details.original_title : details.original_name}</h1>
-                    {/* <p className='py-1 text-md max-md:text-sm'>CHADWICK BOSEMAN, MICHAEL B JORDAN, LUPITA NYONGO</p> */}
+                    {/* <p className='pt-2 text-wrap text-sm max-md:text-xs truncate'>{credits}</p> */}
                     {showInfo()}
                     <p className='py-2 text-md max-lg:text-xs text-gray-300'>{details.overview}</p>
                     <div className="flex tags text-white w-8/12 max-sm:w-full max-sm:justify-around sm:gap-8 text-md py-3 font-light">

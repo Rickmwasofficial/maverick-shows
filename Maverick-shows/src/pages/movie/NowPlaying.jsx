@@ -28,10 +28,10 @@ function NowPlaying() {
         getNow()
     }, [page])
     return (
-        <section className="block my-2 md:w-10/12 h-[auto] w-full align-middle justify-start p-2 mt-12 md:mx-auto">
+        <section className="block my-2 md:w-10/12 h-[auto] mt-12 w-full align-middle justify-start p-2 mt-12 md:mx-auto">
             
             {shows ? (  // If shows is available
-                <div className="w-full mx-auto inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 my-2">
+                <div className="w-full max-md:text-center mx-auto inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 my-2">
                     {shows}
                 </div>
                 ) : (''

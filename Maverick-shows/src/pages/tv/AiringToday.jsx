@@ -32,7 +32,7 @@ function AiringToday() {
             <h1 className="font-work-sans">Airing Today</h1>
             <hr className="bg-red-theme my-2 py-[0.6px] w-10/12" />
             {shows ? (  // If shows is available
-                <div className="w-full mx-auto inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 my-2">
+                <div className="w-full max-md:text-center mx-auto inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 my-2">
                     {shows}
                 </div>
                 ) : (''

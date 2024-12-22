@@ -33,7 +33,7 @@ function Navbar() {
     };
 
     function toggleHumburger() {
-        {!hamburgerIcon ? setHamburgerIcon(prevHamburger => !prevHamburger) : null}
+        setHamburgerIcon(prevHamburger => !prevHamburger)
         setResults('')
     }
     let searchStyle = 'hidden md:flex md:block md:justify-end gap-4 align-middle'
@@ -44,7 +44,7 @@ function Navbar() {
     }
 
     return (
-        <header className={`block w-full text-nowrap font-bold m-0 text-white font-work-sans absolute justify-center ${hamburgerIcon ? 'absolute' : 'bg-black md:relative'}`}>
+        <header className={`block w-full text-nowrap font-bold m-0 text-white font-work-sans absolute justify-center ${hamburgerIcon ? 'absolute' : 'md:relative'}`}>
             <nav className='flex md:w-11/12 w-full align-middle p-5 justify-between'>
                 <div className="flex text-nowrap w-8/12 gap-12 mr-24">
                     <p className='mr-10 font-rubik text-nowrap'>LUTHOR SHOWS</p>

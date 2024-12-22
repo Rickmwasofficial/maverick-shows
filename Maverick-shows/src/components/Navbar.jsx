@@ -83,9 +83,9 @@ function Navbar() {
                 <div className="w-full md:hidden mx-auto bg-black max-md:block gap-4 text-white">
                     <div className="w-[auto] py-2">
                         <ul className='flex justify-around md:gap-12 md:ml-22'>
-                            <li><Link to='/'>HO<span className='text-red-theme'>ME</span></Link></li>
-                            <li><Link to='movies'>MOVIES</Link></li>
-                            <li><Link to='tv'>TV</Link></li>
+                            <li><Link to='/' onClick={() => {toggleHumburger()}}>HO<span className='text-red-theme'>ME</span></Link></li>
+                            <li><Link to='movies' onClick={() => {toggleHumburger()}}>MOVIES</Link></li>
+                            <li><Link to='tv' onClick={() => {toggleHumburger()}}>TV</Link></li>
                         </ul>
                     </div>
                     <div className="w-full py-2 flex justify-around mx-auto">

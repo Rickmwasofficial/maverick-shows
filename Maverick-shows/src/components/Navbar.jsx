@@ -100,7 +100,7 @@ function Navbar() {
                     }
                     handleSearch()
                 }} className='text-black font-light w-full px-[4px] border-r-2 outline-red-theme' />
-                                    {results ? <div className='block gap-2 bg-yellow-50 text-black p-1 mt-[14px] overflow-scroll absolute z-11 max-h-96 w-10/12 mr-6'>
+                                    {results ? <div className='block gap-2 bg-yellow-50 text-black p-1 mt-[14px] overflow-y-scroll absolute z-11 max-h-96 w-10/12 mr-6'>
                                         {results}
                                     </div> : ''}
                                 </div>

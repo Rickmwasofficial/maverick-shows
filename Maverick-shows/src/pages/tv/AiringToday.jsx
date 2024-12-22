@@ -14,7 +14,7 @@ function AiringToday() {
                 const data = movieData.results.slice(10, 20)
                 let retrievedShows = data.map((show, index) => (
                     <ShowCard 
-                        key={show.original_title}
+                        key={show.id}
                         {...show}
                         num={index}
                         media_type='tv'

@@ -12,7 +12,7 @@ function Popular() {
                 const data = movieData.results.slice(0, 10)
                 let retrievedShows = data.map((show, index) => (
                     <ShowCard 
-                        key={show.original_title}
+                        key={show.id}
                         {...show}
                         num={index}
                     />

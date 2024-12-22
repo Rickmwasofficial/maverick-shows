@@ -16,7 +16,7 @@ function ShowCard(props) {
                 }}></div>
                 <div className='w-10/12 max-md:w-full md:mt-[5%] block h-[10%] flex-end'>
                     <p className='p-0 m-0 text-sm font-bold font-work-sans truncate'>{props.original_title ? props.original_title: props.name}</p>
-                    <p className='p-0 m-0 text-sm text-gray-300'>129 Mins | {props.vote_average}</p>
+                    <p className='p-0 m-0 text-sm text-gray-300'>{props.media_type.toUpperCase()} | {props.vote_average} | {props.original_language.toUpperCase()}</p>
                 </div>
             </div>
         </Link>

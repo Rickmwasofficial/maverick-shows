@@ -58,15 +58,19 @@ function Description() {
         fetchTrailer();
     }, [id]);
 
+    document.title = details.original_title ? details.original_title : details.original_name
+
     let showInfo = () => {
         if (str == 'movies') {
             return (
-                <p className='py-1 text-xs'>{details.runtime} Mins <span className="font-bold text-3xl">.</span> {details.release_date} <span className="font-bold text-3xl">.</span> {details.origin_country[0]}</p>
+                <p className='py-1 text-xs'>{details.runtime} Mins <span className="font-bold text-3xl">.</span> {details.release_date} <span className="font-bold text-3xl">.</span> {details.origin_country}</p>
             )
         } else if (str == 'tv') {
             return (
-                <p className='py-1 text-xs'>{details.number_of_seasons} Seasons <span className="font-bold text-3xl">.</span> {details.episode_run_time} Mins <span className="font-bold text-3xl">.</span> {details.first_air_date} <span className="font-bold text-3xl">.</span> {details.origin_country[0]}</p>
+                <p className='py-1 text-xs'>{details.number_of_seasons ? details.number_of_seasons : undefined} Seasons <span className="font-bold text-3xl">.</span> {details.episode_run_time ? details.episode_run_time : null} Mins <span className="font-bold text-3xl">.</span> {details.first_air_date ? details.first_air_date : undefined} <span className="font-bold text-3xl">.</span> {details.origin_country}</p>
             )
+        } else {
+            return null
         }
     }
 

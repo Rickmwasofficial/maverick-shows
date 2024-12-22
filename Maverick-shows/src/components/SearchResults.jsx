@@ -10,6 +10,26 @@ function SearchResults(props) {
         link = `http://localhost:5173/tv/${props.id}`
     }
 
+    let showInfo = () => {
+        if (props.media_type == 'movie') {
+            return (
+                <>
+                    <p className="date text-sm">{props.release_date}</p>
+                    <p className='p-0 m-0 text-sm text-gray-300'>{props.media_type.toUpperCase()} | {props.vote_average} | {props.original_language.toUpperCase()}</p>
+                </>
+            )
+        } else if (props.media_type == 'tv') {
+            return (
+                <>
+                    <p className="date text-sm">{props.frst_air_date}</p>
+                    <p className='p-0 m-0 text-sm text-gray-300'>{props.media_type.toUpperCase()} | {props.vote_average} | {props.original_language.toUpperCase()}</p>
+                </>
+            )
+        } else {
+            return null
+        }
+    }
+
     return (
         <>
             {props.poster_path ? <Link to={link}>
@@ -22,8 +42,7 @@ function SearchResults(props) {
                             <p className='font-bold text-md'>{props.original_title ? props.original_title : props.original_name}</p>
                         </section>
                         <section className="bottom">
-                            <p className="date text-sm">{props.release_date}</p>
-                            <p className='p-0 m-0 text-sm text-gray-300'>{props.runtime} Mins | {props.vote_average}</p>
+                            {showInfo()}
                         </section>
                     </div>
                 </div>

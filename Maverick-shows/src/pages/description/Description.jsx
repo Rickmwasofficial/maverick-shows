@@ -58,6 +58,18 @@ function Description() {
         fetchTrailer();
     }, [id]);
 
+    let showInfo = () => {
+        if (str == 'movies') {
+            return (
+                <p className='py-1 text-xs'>{details.runtime} Mins <span className="font-bold text-3xl">.</span> {details.release_date} <span className="font-bold text-3xl">.</span> {details.origin_country[0]}</p>
+            )
+        } else if (str == 'tv') {
+            return (
+                <p className='py-1 text-xs'>{details.number_of_seasons} Seasons <span className="font-bold text-3xl">.</span> {details.episode_run_time} Mins <span className="font-bold text-3xl">.</span> {details.first_air_date} <span className="font-bold text-3xl">.</span> {details.origin_country[0]}</p>
+            )
+        }
+    }
+
 
     let image = `https://image.tmdb.org/t/p/original${details.backdrop_path}`
 
@@ -89,7 +101,7 @@ function Description() {
                     </div>
                     <h1 className='font-rubik text-4xl max-lg:text-3xl py-4 pb-0'>{details.original_title ? details.original_title : details.original_name}</h1>
                     {/* <p className='py-1 text-md max-md:text-sm'>CHADWICK BOSEMAN, MICHAEL B JORDAN, LUPITA NYONGO</p> */}
-                    <p className='py-1 text-xs'>2 HRS 14 MINS <span className="font-bold text-3xl">.</span> {details.release_date} <span className="font-bold text-3xl">.</span> {}</p>
+                    {showInfo()}
                     <p className='py-2 text-md max-lg:text-xs text-gray-300'>{details.overview}</p>
                     <div className="flex tags text-white w-8/12 max-sm:w-full max-sm:justify-around sm:gap-8 text-md py-3 font-light">
                         <button type="button" className="flex items-center gap-2 text-white bg-gradient-to-br from-red-500 to-red-theme hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Watch Now

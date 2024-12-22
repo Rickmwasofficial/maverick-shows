@@ -18,18 +18,16 @@ function SearchResults(props) {
                         <img src={`https://image.tmdb.org/t/p/original${props.poster_path}`} alt="" />
                     </div>
                     <div className="details w-9/12">
-                        
                         <section className="loc">
                             <p className='font-bold text-md'>{props.original_title ? props.original_title : props.original_name}</p>
                         </section>
                         <section className="bottom">
                             <p className="date text-sm">{props.release_date}</p>
-                            <p className='p-0 m-0 text-sm text-gray-300'>129 Mins | {props.vote_average}</p>
+                            <p className='p-0 m-0 text-sm text-gray-300'>{props.runtime} Mins | {props.vote_average}</p>
                         </section>
                     </div>
                 </div>
                 <hr className="bg-red-theme my-2 py-[0.6px] w-full" />
-                
             </Link> : ''}
         </>
     )

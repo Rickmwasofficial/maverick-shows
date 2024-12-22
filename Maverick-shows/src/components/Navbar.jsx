@@ -22,7 +22,7 @@ function Navbar() {
             const data = await getSearchResults(query);
             if (data && data.results) { // Check if data and results exist
                 setResults(data.results.map((show, index) => (
-                    <SearchResults key={show.original_title || show.id} {...show} num={index} />
+                    <SearchResults key={show.original_title || show.id} {...show} num={index} removeSearch={toggleHumburger} />
                 )));
             } else {
                 console.log('No search results found');

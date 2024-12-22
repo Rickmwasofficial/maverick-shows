@@ -32,7 +32,7 @@ function SearchResults(props) {
 
     return (
         <>
-            {props.poster_path ? <Link to={link}>
+            {props.poster_path ? <Link to={link} onClick={() => props.removeSearch()}>
                 <div className="entry-item w-full flex mx-auto h-[auto] my-1 gap-2 items-center">
                     <div className="img w-3/12">
                         <img src={`https://image.tmdb.org/t/p/original${props.poster_path}`} alt="" />

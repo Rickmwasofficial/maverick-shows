@@ -33,7 +33,7 @@ function Navbar() {
     };
 
     function toggleHumburger() {
-        setHamburgerIcon(prevHamburger => !prevHamburger)
+        {hamburgerIcon ? setHamburgerIcon(prevHamburger => !prevHamburger) : null}
         setResults('')
     }
     let searchStyle = 'hidden md:flex md:block md:justify-end gap-4 align-middle'

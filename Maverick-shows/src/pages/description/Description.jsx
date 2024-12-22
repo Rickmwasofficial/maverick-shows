@@ -1,5 +1,5 @@
 import Data from '../../data/data.js'
-import { getMovieTrailer, getDetails } from '../../data/api.js'
+import { getMovieTrailer, getDetails, getTvTrailer } from '../../data/api.js'
 import Play from '../../assets/play.png'
 import Trailer from '../../assets/trailer.png'
 import { useParams } from 'react-router-dom'
@@ -16,7 +16,7 @@ function Description() {
             try {
                 if (str == 'movies') {
                     console.log('started movie')
-                    const key = await getDetails('movie', id);
+                    const key = await getDetails('movie', id)
                     setDetails(key)
                 } else {
                     const key = await getDetails('tv', id);
@@ -35,7 +35,15 @@ function Description() {
         const fetchTrailer = async () => {
             // console.log('started');
             try {
-                const key = await getMovieTrailer(id);
+                const getKey = () => {
+                    if (str == 'movies') {
+                        return getMovieTrailer(id)
+                    } else if (str == 'tv') {
+                        return getTvTrailer(id)
+                    }
+                }
+                const key = await getKey()
+                
                 const trailerData = key.results.find(video => video.type === 'Trailer'); // Find the trailer object
                 if (trailerData) {
                     setTrailer(  // Assuming you have a state setter function called setTrailer

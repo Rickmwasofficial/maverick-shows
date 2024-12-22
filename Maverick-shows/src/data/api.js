@@ -18,6 +18,11 @@ export async function getMovieTrailer(movieId) {
   return await res.json(); // Return the promise from res.json()
 }
 
+export async function getTvTrailer(movieId) {
+  const res = await fetch(`https://api.themoviedb.org/3/tv/${movieId}/videos?language=en-US`, options);
+  return await res.json(); // Return the promise from res.json()
+}
+
 export async function getMovieNowPlaying(page) {
   const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options);
   return await res.json(); // Return the promise from res.json()

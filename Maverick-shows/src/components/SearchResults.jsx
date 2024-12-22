@@ -39,7 +39,7 @@ function SearchResults(props) {
                     </div>
                     <div className="details w-9/12">
                         <section className="loc">
-                            <p className='font-bold text-md'>{props.original_title ? props.original_title : props.original_name}</p>
+                            <p className='font-bold text-md text-wrap'>{props.original_title ? props.original_title : props.original_name}</p>
                         </section>
                         <section className="bottom">
                             {showInfo()}

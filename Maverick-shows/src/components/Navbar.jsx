@@ -44,8 +44,8 @@ function Navbar() {
     }
 
     return (
-        <header className={`block w-full text-nowrap font-bold m-0 text-white font-work-sans absolute justify-center ${hamburgerIcon ? 'absolute' : 'max-md:relative'}`}>
-            <nav className='flex md:w-11/12 w-full align-middle p-5 justify-between'>
+        <header className={`w-full flex justify-center text-nowrap font-bold text-white font-work-sans absolute ${hamburgerIcon ? 'absolute' : 'max-md:relative'}`}>
+            <nav className='flex md:w-11/12 w-full align-middle py-5 justify-center'>
                 <div className="flex text-nowrap w-8/12 gap-12 mr-24">
                     <p className='mr-10 font-rubik text-nowrap'>LUTHOR SHOWS</p>
                     <ul className='hidden md:flex md:gap-12 md:ml-22'>
@@ -61,12 +61,12 @@ function Navbar() {
                     {inputEl ? 
                         <div className="block gap-2 w-10/12">
                             <input type="text" name="searchInput" autoComplete='off'
-        onChange={(e) => setQuery(e.target.value)} onKeyDown={e => {
-            if (e.key === 'Enter') {
-                handleSearch()
-            }
-            handleSearch()
-        }} className='text-black font-light px-[4px] border-r-2 outline-red-theme' />
+                                onChange={(e) => setQuery(e.target.value)} onKeyDown={e => {
+                                    if (e.key === 'Enter') {
+                                        handleSearch()
+                                    }
+                                    handleSearch()
+                                }} className='text-black font-light px-[4px] border-r-2 outline-red-theme' />
                             {results ? <div className='block gap-2 bg-yellow-50 text-black p-1 mt-[14px] overflow-scroll absolute z-11 max-h-96 w-auto mr-6'>
                                 {results}
                             </div> : ''}
